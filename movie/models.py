@@ -11,4 +11,5 @@ class Movie(models.Model):
 	movie_actor = models.CharField(null = True, default = 'n/a', max_length = 200)
 	movie_writer = models.CharField(null = True, default = 'n/a', max_length = 200)
 	movie_director = models.CharField(null = True, default = 'n/a',max_length = 200)
+	movie_poster = models.CharField(null = True,max_length = 200)
 		
