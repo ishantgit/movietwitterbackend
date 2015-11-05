@@ -1,11 +1,17 @@
 from django.shortcuts import render
-from django.views.decorators.http import require_GET
-from django.core import serializers
+from movie.serializers import *
+from rest_framework.decorators import api_view
 from .models import Movie
-from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework import status
 # Create your views here.
-@require_GET
-def getMovies(request):
+
+@api_view(['GET'])
+def get_movies(request):
 	movie = Movie.objects.all()
-	data = serializers.serialize('json', movie)
-	return HttpResponse(data, content_type='application/json')
+	movie.reverse()
+	data = {}
+	serializer = MovieReadSerializer(movie, many=True)
+	data['message'] = "list of movies latest first"
+	data['movies'] = serializer.data
+	return Response(data, status = status.HTTP_200_OK)

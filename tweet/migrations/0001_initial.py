@@ -14,9 +14,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Tweet',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('tweet_sentiment', models.DecimalField(null=True, max_digits=5, decimal_places=5, blank=True)),
-                ('tweet_text', models.ForeignKey(to='movie.Movie')),
+                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('text', models.TextField(null=True, blank=True)),
+                ('polarity', models.DecimalField(max_digits=25, null=True, blank=True, decimal_places=20)),
+                ('subjectivity', models.DecimalField(max_digits=25, null=True, blank=True, decimal_places=20)),
+                ('movie', models.ForeignKey(null=True, to='movie.Movie')),
             ],
         ),
     ]

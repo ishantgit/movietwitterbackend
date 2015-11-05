@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'movie',
     'tweet',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +83,7 @@ DATABASES = {
         'NAME': 'movieBackend',
 	'HOST': 'localhost',
 	'USER': 'root',
-	'PASSWORD': '9711917499',
+	'PASSWORD': 'test123',
 	'PORT': 3306,
     }
 }
